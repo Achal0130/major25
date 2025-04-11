@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'scan_screen.dart'; // ✅ Import your ScanScreen here!
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  final PageController _pageController = PageController(viewportFraction: 0.8);
+  final PageController _pageController = PageController(viewportFraction: 0.9);
   double _pageOffset = 0;
 
   @override
@@ -262,7 +263,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildScanButton() {
     return GestureDetector(
       onTap: () {
-        // Handle scan button tap
+        // ✅ Navigate to ScanScreen on tap
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ScanScreen()),
+        );
       },
       child: Container(
         height: 64,
